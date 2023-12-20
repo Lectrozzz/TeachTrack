@@ -1,0 +1,63 @@
+input, select{
+    background-color: #CDCDCD;
+    border: 0px;
+    border-radius: 5px;
+    margin-top: 0.25rem;
+}
+
+input[type=text], input[type=number], input[type=date], select{
+    padding: 0.15rem 0 0.15rem 0.2rem;
+    box-sizing: border-box;
+}
+
+.required{
+    color: #FF3D3D;
+}
+
+.groupFormGrid{
+    background-color: #586470;
+    color: #FFFFFF;
+    border-radius: 10px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 1.5rem;
+    column-gap: 3rem;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+}
+
+.gridFormRowItem1{
+    grid-column: span 1;
+}
+
+.gridFormRowItem3{
+    grid-column: span 3;
+}
+
+.flexFormContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.normalInputForm{
+    width: 100%;
+    padding: 0.1rem 0 0.1rem 0;
+}
+
+.partialTextForm{
+    width: 64.5%;
+    padding: 0.1rem 0 0.1rem 0;
+}
+
+.fullTextForm{
+    width: 100%;
+    padding: 0.1rem 0 0.1rem 0;
+}
+
+.buttonRow{
+    text-align: right;
+}
+
+.leftMost{
+    margin-left: 0.75rem;
+}

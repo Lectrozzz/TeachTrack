@@ -1,0 +1,36 @@
+.summaryItemContainer{
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr;
+    flex-direction: row;
+    color: #FFFFFF;
+    padding: 0.75rem 2rem 0.75rem 2rem;
+}
+
+.summaryHeaderContainer{
+    background-color: #3C4752;
+    font-weight: 600;
+    border-radius: 10px 10px 0 0;
+}
+
+.summaryFooterContainer{
+    background-color: #3C4752;
+    font-weight: 600;
+    border-radius: 0 0 10px 10px;
+}
+
+.evenContainerItem{
+    background-color: #586470;
+}
+
+.oddContainerItem{
+    background-color: #616F7D;
+}
+
+.summaryLongItem{
+    grid-column: span 1;
+}
+
+.summaryShortItem{
+    grid-column: span 1;
+    text-align: end;
+}

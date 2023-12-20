@@ -1,0 +1,75 @@
+.itemContainer{
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 1.5rem;
+    column-gap: 4rem;
+    margin: 0 0 1.5rem 0;
+    padding: 1rem 1.5rem 1rem 1.5rem;;
+}
+
+.activeContainer{
+    background-color: #586470;
+    color: #FFFFFF;
+}
+
+.activeContainer:hover{
+    background-color: #616F7D;
+}
+
+.inactiveContainer{
+    background-color: #393939;
+    color: #8D8D8D;
+}
+
+.inactiveContainer:hover{
+    background-color: #404040;
+}
+
+.flexItemContainer{
+    display:flex;
+    justify-content: space-between;
+}
+
+.gridItem1{
+    grid-column: span 1;
+}
+
+.gridItem2{
+    grid-column: span 2;
+}
+
+.gridItem3{
+    grid-column: span 3;
+}
+
+.activeHeader:hover{
+    color:#49D3FF;
+}
+
+.inactiveHeader{
+    color: #8D8D8D;
+}
+
+.inactiveHeader:hover{
+    color:#49D3FF;
+}
+
+.activeText{
+    color: #49FF45;
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 0.75rem;
+}
+
+.inactiveText{
+    color: #FF3D3D;
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 0.75rem;
+}
+
+.inactiveForm{
+    color: #8D8D8D;
+    background-color: #3C4752;
+}

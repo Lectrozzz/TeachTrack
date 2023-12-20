@@ -1,0 +1,36 @@
+.tutorialContainer{
+    margin-top: 2rem;
+}
+
+.tutorialSection{
+    margin-bottom: 3rem;
+}
+
+.tutorialHeaderContainer{
+    margin-bottom: 0.75rem;
+}
+
+.tutorialSubheaderContainer{
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+.tutorialContentContainer{
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+.tutorialSubsectionContainer{
+    margin: 0.5rem 0 1rem 0;
+}
+
+.tutorialMediaContainer{
+    text-align: center;
+    margin: 1rem 0 1.5rem 0;
+}
+
+.imageDescription{
+    color: #CDCDCD;
+}
+
+.fitImage{
+    width: 45vw;
+}

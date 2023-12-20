@@ -1,0 +1,9 @@
+.headerContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerItem{
+    display: flex;
+    align-items: center;
+}
