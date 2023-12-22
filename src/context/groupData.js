@@ -83,13 +83,3 @@ const deleteGroupData = async (id)=>{
 }
 
 export {createGroup, getGroupData, getAllGroupData, getGroupDataById, addGroupData, updateGroupData, deleteGroupData, initializeData};
-
-
-// const loadDummyData = ()=> {
-//     // const group1= new groupItem("c176_private_pk","Python Start Year1", "Private Class", "Im Park Samyan", 1, 16, "M5L4 first half", "", true);
-//     // addData(group1.groupId, group1);
-
-//     const group2= new groupItem("c425_private_Idea","Python Start Year1", "Private Class", "Online", 1, 7, "M3L4", "", "", true);
-//     addGroupData(group2.groupId, group2);
-// }
-
