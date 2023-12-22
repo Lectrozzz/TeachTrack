@@ -48,7 +48,7 @@ const insertData = async (id, newGroupItem) =>{
             groupType: newGroupItem.groupType,
             groupLocation: newGroupItem.groupLocation,
             roundCount: newGroupItem.roundCount,
-            previousClass: newGroupItem.previousClass,
+            currentLesson: newGroupItem.currentLesson,
             nextClass: newGroupItem.nextClass,
             note: newGroupItem.note,
             activeStatus: newGroupItem.activeStatus
@@ -114,9 +114,9 @@ const updateData = async(id, field, updatedData)=>{
             }
             catch(e){ console.log(e.message) }    
         }
-        case "previousClass":{
+        case "currentLesson":{
             try{
-                await updateDoc(studyGroupRef,{previousClass:updatedData});
+                await updateDoc(studyGroupRef,{currentLesson:updatedData});
                 break;
             }
             catch(e){ console.log(e.message) }  

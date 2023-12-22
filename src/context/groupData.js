@@ -19,7 +19,7 @@ class groupItem{
         this.groupLocation=groupLocation;
         // Group progress
         this.roundCount=0;
-        this.previousClass="";
+        this.currentLesson="";
         this.nextClass="";
         this.note=note;
         this.activeStatus=true;

@@ -12,7 +12,7 @@ const StudyGroupItem = (props) =>{
     const groupObj=props.obj;
     
     const [roundCount ,setRoundCount]=useState(groupObj.roundCount);
-    const [previousClass ,setPreviousClass]=useState(groupObj.previousClass);
+    const [currentLesson ,setCurrentLesson]=useState(groupObj.currentLesson);
     const [nextClass ,setNextClass]=useState(groupObj.nextClass);
     const [activeStatus ,setActiveStatus]=useState(groupObj.activeStatus);
 
@@ -62,8 +62,8 @@ const StudyGroupItem = (props) =>{
             </div>
             <div className="gridItem1">
                 <div>
-                    <label htmlFor="previousClass">Previous</label><br />
-                    <input id="previousClass" name="previousClass" className={`normalInputForm ${(activeStatus) ? "" : "inactiveForm"}`} type="text" value={previousClass} disabled={!activeStatus} onChange={(e)=>setPreviousClass(e.target.value)} onBlur={()=>submitUpdatedData("previousClass", previousClass)}/>
+                    <label htmlFor="previousClass">Current Lesson</label><br />
+                    <input id="previousClass" name="previousClass" className={`normalInputForm ${(activeStatus) ? "" : "inactiveForm"}`} type="text" value={currentLesson} disabled={!activeStatus} onChange={(e)=>setCurrentLesson(e.target.value)} onBlur={()=>submitUpdatedData("currentLesson", currentLesson)}/>
                 </div>
             </div>
             <div className="gridItem1">
