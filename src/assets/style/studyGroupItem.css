@@ -8,6 +8,16 @@
     padding: 1rem 1.5rem 1rem 1.5rem;;
 }
 
+.groupIdContainer{
+    grid-column: span 2;
+}
+
+.groupIdContainer h2{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .activeContainer{
     background-color: #586470;
     color: #FFFFFF;
@@ -26,11 +36,6 @@
     background-color: #404040;
 }
 
-.flexItemContainer{
-    display:flex;
-    justify-content: space-between;
-}
-
 .gridItem1{
     grid-column: span 1;
 }
@@ -41,6 +46,10 @@
 
 .gridItem3{
     grid-column: span 3;
+}
+
+.gridItemEnd{
+    text-align: end;
 }
 
 .activeHeader:hover{

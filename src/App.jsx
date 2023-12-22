@@ -20,12 +20,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="newgroup" element={<NewGroup/>}/>
+          <Route path="editgroup/:selectedId" element={<EditGroup/>}/>
           <Route path="summary" element={<Summary/>}/>
           <Route path="tutorial" element={<Tutorial/>}/>
           <Route path="about" element={<About/>}/>
-          <Route path="newgroup" element={<NewGroup/>}/>
           <Route path="*" element={<NoPage/>} />
-          <Route path="editgroup/:selectedId" element={<EditGroup/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

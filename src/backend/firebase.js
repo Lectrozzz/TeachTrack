@@ -53,6 +53,7 @@ const insertData = async (id, newGroupItem) =>{
             note: newGroupItem.note,
             activeStatus: newGroupItem.activeStatus
         });
+        // Alert message will be changed later
         alert("New study group has been added");
     }
     catch(e){
@@ -148,6 +149,7 @@ const deleteData= async (id) =>{
     try{
         console.log(id);
         await deleteDoc(doc(db, "studyGroup", id));
+        // Alert message will be changed later
         alert(id+" has been deleted");
     }
     catch(e){

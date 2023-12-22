@@ -45,30 +45,28 @@ const StudyGroupItem = (props) =>{
 
     return(
         <div className={`itemContainer ${(activeStatus) ? "activeContainer" : "inactiveContainer"}`}>
-            <div className="gridItem3 flexItemContainer">
-                <div>
-                    <Link to={`/editgroup/${groupObj.groupId}`} >
-                        <h2 className={(activeStatus) ? "activeHeader":"inactiveHeader"}>{groupObj.groupId}</h2> 
-                    </Link>
-                </div>
-                <div>
-                    <label htmlFor="activeStatus" className={(activeStatus) ? "activeText":"inactiveText"} >{(activeStatus) ? "ACTIVE":"INACTIVE"}</label>
-                    <input type="checkbox" name="activeStatus" id="activeStatus" checked={activeStatus} onChange={activeStatusHandler}/>
-                </div>
+            <div className='groupIdContainer' >
+                <Link to={`/editgroup/${groupObj.groupId}`} >
+                    <h2 className={(activeStatus) ? "activeHeader":"inactiveHeader"}>{groupObj.groupId}</h2> 
+                </Link>
             </div>
-            <div className="gridItem1 flexActiveStart">
+            <div className="gridItem1 gridItemEnd">
+                <label htmlFor="activeStatus" className={(activeStatus) ? "activeText":"inactiveText"} >{(activeStatus) ? "ACTIVE":"INACTIVE"}</label>
+                <input type="checkbox" name="activeStatus" id="activeStatus" checked={activeStatus} onChange={activeStatusHandler}/>
+            </div>
+            <div className="gridItem1">
                 <div>
                     <label htmlFor="roundCount">Round</label><br />
                     <input id="roundCount" name="roundCount" className={`normalInputForm ${(activeStatus) ? "" : "inactiveForm"}`} type="number" value={roundCount} min="0" disabled={!activeStatus} onChange={roundCountHandler} />
                 </div>
             </div>
-            <div className="gridItem1 flexActiveCenter">
+            <div className="gridItem1">
                 <div>
                     <label htmlFor="previousClass">Previous</label><br />
                     <input id="previousClass" name="previousClass" className={`normalInputForm ${(activeStatus) ? "" : "inactiveForm"}`} type="text" value={previousClass} disabled={!activeStatus} onChange={(e)=>setPreviousClass(e.target.value)} onBlur={()=>submitUpdatedData("previousClass", previousClass)}/>
                 </div>
             </div>
-            <div className="gridItem1 flexActiveEnd">
+            <div className="gridItem1">
                 <div>
                     <label htmlFor="nextClass">Next Class</label><br />
                     <input id="nextClass" name="nextClass" className={`normalInputForm ${(activeStatus) ? "" : "inactiveForm"}`} type="date" value={nextClass} disabled={!activeStatus} onChange={(e) => nextClassHandler(e)} />
