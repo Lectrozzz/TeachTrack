@@ -1,3 +1,15 @@
+# TeachTrack
+
+Track your teaching progress and calcualte your teaching fee in one place.
+
+# Link
+
+## Website (Showcase version)
+- [TeachTrack-showcase](https://teachtrack-showcase.web.app/)
+
+## Design (Figma)
+- [Figma design file](https://www.figma.com/file/SnqZ8mvBvIjglMDYkdfNLJ/TeachTrack-design-v1?type=design&node-id=0%3A1&mode=design&t=w77IbZlOBe14RzAU-1)
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

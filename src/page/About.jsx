@@ -109,6 +109,19 @@ const About = () =>{
                         </div>
                     </div>
                 </div>
+                <div className="tutorialSection">
+                    <div className="tutorialHeaderContainer">
+                        <h2>Technology</h2>
+                    </div>
+                    <hr />
+                    <div className="tutorialContentContainer">
+                        <ul className="aboutList">
+                            <li>React (Front-end)</li>
+                            <li>Firebase (Database and Host)</li>
+                            <li>Figma (Design)</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </>
     );
