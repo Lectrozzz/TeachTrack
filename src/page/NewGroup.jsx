@@ -1,9 +1,12 @@
 // Import react
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
+import { useToast } from '@chakra-ui/react'
+
 
 // Import context
-import {createGroup, addGroupData} from "../context/groupData.js";
+import {createGroup, addGroupData, getAllGroupData} from "../context/groupData.js";
+import {validateAllData} from "../context/checkData.js";
 
 // Import assets
 import "../assets/style/groupForm.css";
@@ -11,6 +14,7 @@ import "../assets/style/button.css";
 
 const NewGroup = ()=>{
     const navigate=useNavigate();
+    const toast = useToast();
 
     // Input data
     const [groupId, setGroupId]=useState("");
@@ -23,11 +27,40 @@ const NewGroup = ()=>{
     const [note, setNote]=useState("");
 
     // Submit data
-    const insertData=(e)=>{
+    const insertData= async (e)=>{
         e.preventDefault();
         const newGroupItem = createGroup(groupId, studentCount, groupLanguage, groupDuration, groupCourse, groupType, groupLocation, note);
-        addGroupData(groupId, newGroupItem);
+        
+        const allDataArray = await getAllGroupData();
+        const [errorMessage] = validateAllData(groupId, newGroupItem, allDataArray);
+        if(errorMessage.length > 0){
+            for(let message of errorMessage){
+                toast({
+                    title: "Error",
+                    description: message,
+                    status: "error",
+                    position: "top",
+                    duration: 5000,
+                    isClosable: true,
+                });
+            }
+        }
+        else{
+            await addGroupData(groupId, newGroupItem);
+            toast({
+                title: "Complete",
+                description: "New study group has been added.",
+                status: "success",
+                position: "top",
+                duration: 5000,
+                isClosable: true,
+            });
+        }
     };
+
+    const cancelHandler=()=>{
+        navigate("/");
+    }
 
     return(
         <>
@@ -93,7 +126,7 @@ const NewGroup = ()=>{
                         <input id="note" name="note" type="text" className="fullTextForm" value={note} onChange={(e)=>setNote(e.target.value)}/>
                     </div>
                     <div className="gridFormRowItem3 buttonRow">
-                        <button className="btn grayButton" onClick={()=>navigate("/")}>Cancel</button>
+                        <button className="btn grayButton" onClick={cancelHandler}>Cancel</button>
                         <input type="submit" className="btn blueButton leftMost" value="Create" />
                     </div>
                 </div>

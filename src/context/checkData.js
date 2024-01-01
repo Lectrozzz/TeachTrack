@@ -7,8 +7,15 @@ const checkIdExist=(id, allDataArray)=>{
     return true;
 }
 
+const checkIdFormat = (id)=>{
+    if(id.length===6){
+        return true;
+    }
+    return false;
+}   
+
 const checkStudentCount = (studentCount)=>{
-    if(studentCount>0 && studentCount<36500){
+    if(studentCount>0 && studentCount<30){
         return true;
     }
     return false;
@@ -28,14 +35,14 @@ const checkDuration = (duration)=>{
     return false;
 }
 
-const validateData=(id, newGroupItem, allDataArray)=>{
+const validateAllData=(id, newGroupItem, allDataArray)=>{
     const errorMessage=[];
-    if(!checkIdExist(id, allDataArray)) errorMessage.add("This ID is already exist");
-    if(!checkStudentCount(newGroupItem.studentCount)) errorMessage.add("Invalid student count");
-    if(!checkLanguage(newGroupItem.groupLanguage)) errorMessage.add("Invalid language");
-    if(!checkDuration(newGroupItem.groupDuration)) errorMessage.add("Invalid duration");
+    if(!checkIdExist(id, allDataArray)) errorMessage.push("This ID is already exist");
+    if(!checkStudentCount(newGroupItem.studentCount)) errorMessage.push("Student count should be between 1-30");
+    if(!checkLanguage(newGroupItem.groupLanguage)) errorMessage.push("Invalid language");
+    if(!checkDuration(newGroupItem.groupDuration)) errorMessage.push("Invalid duration");
     
-    return [errorMessage.length===0, errorMessage]
+    return [errorMessage]
 }
 
-export {validateData}
+export {validateAllData}

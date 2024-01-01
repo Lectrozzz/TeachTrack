@@ -71,6 +71,11 @@ li{
     line-height: 1.5rem;
 }
 
+button{
+    color: #FFFFFF;
+    border: 0px;
+}
+
 .navContainer{
     background-color: #393939;
     display:flex;

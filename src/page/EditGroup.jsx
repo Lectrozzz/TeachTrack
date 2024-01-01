@@ -1,6 +1,19 @@
 // Import react
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useToast, useDisclosure } from '@chakra-ui/react'
+
+// Import components
+import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogOverlay,
+  AlertDialogCloseButton,
+  Button,
+} from '@chakra-ui/react'
 
 // Import context
 import {getGroupDataById, updateGroupData, deleteGroupData } from "../context/groupData.js";
@@ -8,9 +21,12 @@ import {getGroupDataById, updateGroupData, deleteGroupData } from "../context/gr
 const EditGroup = () =>{
     const param=useParams();
     const navigate=useNavigate();
+    const toast = useToast();
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const cancelRef = useRef()
 
-    const fetchData = ()=>{
-        const selectedItem=getGroupDataById(param.selectedId);
+    const fetchData = async ()=>{
+        const selectedItem= await getGroupDataById(param.selectedId);
         setGroupId(selectedItem.groupId);
         setGroupLanguage(selectedItem.groupLanguage);
         setGroupDuration(selectedItem.groupDuration);
@@ -35,8 +51,7 @@ const EditGroup = () =>{
     const [groupLocation, setGroupLocation]=useState("");
     const [note, setNote]=useState("");
 
-    const updateAllData=(e)=>{
-        e.preventDefault();
+    const saveDataHandler=()=>{
         updateGroupData(groupId, "studentCount", studentCount)
         updateGroupData(groupId, "groupLanguage", groupLanguage)
         updateGroupData(groupId, "groupDuration", groupDuration)
@@ -44,19 +59,38 @@ const EditGroup = () =>{
         updateGroupData(groupId, "groupType", groupType)
         updateGroupData(groupId, "groupLocation", groupLocation)
         updateGroupData(groupId, "note", note)
-        alert("Data updated");
+        
+        toast({
+            title: "Complete",
+            description: "Study group data has been updated.",
+            status: "success",
+            position: "top",
+            duration: 5000,
+            isClosable: true,
+        });
+
         navigate("/");
     }
 
     const deleteGroupHandler=()=>{
         deleteGroupData(groupId);
+        
+        toast({
+            title: "Complete",
+            description: "Study group has been deleted.",
+            status: "success",
+            position: "top",
+            duration: 5000,
+            isClosable: true,
+        });
+
         navigate("/");
     }
 
     return(
         <>
             <h1>{groupId}</h1>
-            <form onSubmit={updateAllData} >
+            <form onSubmit={(e)=>e.preventDefault()} >
                 <div className="groupFormGrid">
                     <div className="gridFormRowItem3">
                         <label htmlFor="groupId">ID</label><br />
@@ -116,11 +150,33 @@ const EditGroup = () =>{
                         <input id="note" name="note" type="text" className="fullTextForm" value={note} onChange={(e)=>setNote(e.target.value)}/>
                     </div>
                     <div className="gridFormRowItem3 buttonRow">
-                        <button className="btn redButton" onClick={deleteGroupHandler}>Delete</button>
-                        <input type="submit" className="btn blueButton leftMost" value="Save" />
+                        <button className="btn redButton" onClick={onOpen}>Delete</button>
+                        <button className="btn blueButton leftMost" onClick={saveDataHandler}>Save</button>
                     </div>
                 </div>
             </form>
+            <AlertDialog isOpen={isOpen} leastDestructiveRef={cancelRef} onClose={onClose} motionPreset='slideInBottom' >
+                <AlertDialogOverlay>
+                    <AlertDialogContent>
+                        <AlertDialogHeader fontSize='lg' fontWeight='bold' bg="primary.white" borderTopRadius="10" >
+                            Delete study group
+                        </AlertDialogHeader>
+
+                        <AlertDialogBody>
+                            Are you sure? You can't undo this action afterwards.
+                        </AlertDialogBody>
+
+                        <AlertDialogFooter borderBottomRadius="10" >
+                            <Button ref={cancelRef} onClick={onClose} >
+                                Cancel
+                            </Button>
+                            <Button onClick={deleteGroupHandler} colorScheme='red' ml={3}>
+                                Delete
+                            </Button>
+                        </AlertDialogFooter>
+                    </AlertDialogContent>
+                </AlertDialogOverlay>
+            </AlertDialog>
         </>
     )
 }

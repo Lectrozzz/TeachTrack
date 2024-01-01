@@ -117,6 +117,7 @@ const About = () =>{
                     <div className="tutorialContentContainer">
                         <ul className="aboutList">
                             <li>React (Front-end)</li>
+                            <li>Chakra UI (Front-end component)</li>
                             <li>Firebase (Database and Host)</li>
                             <li>Figma (Design)</li>
                         </ul>

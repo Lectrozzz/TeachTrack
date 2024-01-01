@@ -1,6 +1,7 @@
 // Import react
-import { useMemo, useState, useEffect } from 'react';
-import { useNavigate, Link} from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
+import { Checkbox } from '@chakra-ui/react'
 
 // Import context
 import { updateGroupData } from "../context/groupData.js";
@@ -17,7 +18,6 @@ const StudyGroupItem = (props) =>{
     const [activeStatus ,setActiveStatus]=useState(groupObj.activeStatus);
 
     useEffect(()=>{
-        console.log("StudyGroupItem rendered");
         props.fetchData();
     }, [activeStatus])
 
@@ -52,7 +52,7 @@ const StudyGroupItem = (props) =>{
             </div>
             <div className="gridItem1 gridItemEnd">
                 <label htmlFor="activeStatus" className={(activeStatus) ? "activeText":"inactiveText"} >{(activeStatus) ? "ACTIVE":"INACTIVE"}</label>
-                <input type="checkbox" name="activeStatus" id="activeStatus" checked={activeStatus} onChange={activeStatusHandler}/>
+                <Checkbox isChecked={activeStatus} onChange={activeStatusHandler} colorScheme='green' size='lg'></Checkbox>
             </div>
             <div className="gridItem1">
                 <div>

@@ -39,8 +39,8 @@ const calculateFee = (item) => {
     return teachingFee*item.roundCount;
 }
 
-const summarizeData = () => {
-    const allDataArray = getAllGroupData();
+const summarizeData = async () => {
+    const allDataArray = await getAllGroupData();
 
     const summaryArray = [];
     let totalRound = 0, totalFee=0;

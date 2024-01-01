@@ -1,5 +1,4 @@
 import { fetchData, insertData, updateData, deleteData } from '../backend/firebase.js';
-import { validateData } from './checkData.js';
 
 // Global data
 let allDataArray = [];
@@ -48,28 +47,24 @@ const getGroupData = () =>{
     return [activeArray, inactiveArray];
 };
 
-const getAllGroupData = () =>{
+const getAllGroupData = async () =>{
+    if(allDataArray.length===0) await fetchNewData();
     return allDataArray;
 }
 
-const getGroupDataById = (id)=>{
+const getGroupDataById = async (id)=>{
+    const allDataArray = await getAllGroupData();
     for(let item of allDataArray){
         if(item.groupId===id){
             return item;
         }
     }
+    return null;
 }
 
 const addGroupData = async (id, newGroupItem) =>{
-    const [result, errorMessage] = validateData(id, newGroupItem, allDataArray)
-    if(result){
-        await insertData(id, newGroupItem);
-        fetchNewData();
-    }
-    else{
-        // Alert message will be changed later
-        alert(errorMessage);
-    }
+    await insertData(id, newGroupItem);
+    fetchNewData();
 }
 
 const updateGroupData = async (id, field, newData) =>{

@@ -1,5 +1,5 @@
 //Import react
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 // Import context
 import { summarizeData } from "../context/summaryData.js";
@@ -9,12 +9,22 @@ import SummaryItem from "../component/SummaryItem.jsx";
 import HomeButton from "../component/HomeButton.jsx";
 
 const Summary = ()=>{
-    const dataObject = summarizeData();
+    
+    const fetchSummaryData = async ()=>{
+        const summaryData= await summarizeData();
+        setSummaryArray(summaryData.summaryArray);
+        setTotalRound(summaryData.totalRound);
+        setTotalFee(summaryData.totalFee);
+    }
+
+    useEffect(() => {
+        fetchSummaryData();
+    }, []);
 
     // Data state
-    const summaryArray = dataObject.summaryArray;
-    const totalRound = dataObject.totalRound;
-    const totalFee = dataObject.totalFee;
+    const [summaryArray, setSummaryArray] = useState([]);
+    const [totalRound, setTotalRound] = useState(0);
+    const [totalFee, setTotalFee] = useState(0);
 
     const headerItem = {groupId:"Group ID", roundCount:"Round", teachingFee:"Fee"};
     const summaryItem = {groupId:"Total", roundCount:totalRound, teachingFee:totalFee};
