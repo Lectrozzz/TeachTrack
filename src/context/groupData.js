@@ -1,9 +1,5 @@
-import { fetchData, insertData, updateData, deleteData } from '../backend/firebase.js';
-
-// Global data
-let allDataArray = [];
-let activeArray = [];
-let inactiveArray = [];
+import { insertData, updateData, deleteData } from '../backend/firebase.js';
+import { fetchStorage, getDataArrayStorage, getStatusArrayStorage } from './storage.js';
 
 class groupItem{
     constructor(groupId, studentCount, groupLanguage, groupDuration, groupCourse, groupType, groupLocation, note){
@@ -30,25 +26,13 @@ const createGroup = (groupId, studentCount, groupLanguage, groupDuration, groupC
     return newGroup;
 }
 
-const initializeData = async ()=>{
-    await fetchNewData();
-}
-
-const fetchNewData = async ()=>{
-    //fetch data from backend
-    const fetchedArray = await fetchData();
-    // console.log(fetchedArray);
-    allDataArray = [...fetchedArray];
-    activeArray = [...fetchedArray.filter((item) => item.activeStatus)];
-    inactiveArray = [...fetchedArray.filter((item) => !item.activeStatus)];
-}
-
-const getGroupData = () =>{
+const getGroupData = async () =>{
+    const [activeArray, inactiveArray] = await getStatusArrayStorage();
     return [activeArray, inactiveArray];
 };
 
 const getAllGroupData = async () =>{
-    if(allDataArray.length===0) await fetchNewData();
+    const allDataArray = await getDataArrayStorage();
     return allDataArray;
 }
 
@@ -64,17 +48,17 @@ const getGroupDataById = async (id)=>{
 
 const addGroupData = async (id, newGroupItem) =>{
     await insertData(id, newGroupItem);
-    fetchNewData();
+    await fetchStorage();
 }
 
 const updateGroupData = async (id, field, newData) =>{
     await updateData(id, field, newData);
-    fetchNewData();
+    await fetchStorage();
 }
 
 const deleteGroupData = async (id)=>{
     await deleteData(id);
-    fetchNewData();
+    await fetchStorage();
 }
 
-export {createGroup, getGroupData, getAllGroupData, getGroupDataById, addGroupData, updateGroupData, deleteGroupData, initializeData};
+export {createGroup, getGroupData, getAllGroupData, getGroupDataById, addGroupData, updateGroupData, deleteGroupData};

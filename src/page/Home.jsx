@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 
 // Import context
-import { getGroupData, initializeData } from "../context/groupData.js";
+import { getGroupData } from "../context/groupData.js";
 
 // Import assets
 import "../assets/style/home.css";
@@ -18,8 +18,7 @@ const Home=()=>{
     const [inactiveArray, setInactiveArray] = useState([]);
 
     const fetchData = async ()=>{
-        await initializeData();
-        const [newActiveArray, newInactiveArray]= getGroupData();
+        const [newActiveArray, newInactiveArray]= await getGroupData();
         setActiveArray(newActiveArray);
         setInactiveArray(newInactiveArray);
     }
