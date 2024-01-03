@@ -48,6 +48,10 @@
     grid-column: span 3;
 }
 
+.gridItemCenter{
+    text-align: center;
+}
+
 .gridItemEnd{
     text-align: end;
 }
@@ -81,4 +85,8 @@
 .inactiveForm{
     color: #8D8D8D;
     background-color: #3C4752;
+}
+
+.currentLessonForm{
+    padding: 0.1rem 0 0.1rem 0;
 }

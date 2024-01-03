@@ -32,6 +32,20 @@ const customTheme = extendTheme({
                 border: "0px",
                 color: "white",
             },
+            variants:{
+                "blueButton":{
+                    bg: "primary.blue",
+                    _hover: {
+                        bg: "secondary.blue",
+                    },
+                },
+                "inactiveFormButton":{
+                    bg: "primary.inactiveBlueGray",
+                    _hover: {
+                        bg: "primary.inactiveBlueGray",
+                    },
+                },
+            },
         },
     },
 });

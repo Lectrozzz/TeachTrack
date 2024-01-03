@@ -12,7 +12,7 @@ const Layout = ()=>{
                     <h1>TeachTrack</h1>
                 </header>
                 <nav>
-                    <div className="navContainer">
+                    <div className="navItemContainer">
                         <div>
                             <Link to="/">
                                 <div className="navItem">Home</div>
