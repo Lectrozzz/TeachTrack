@@ -47,6 +47,13 @@ const customTheme = extendTheme({
                 },
             },
         },
+        Tooltip:{
+            baseStyle: {
+                bg: "primary.darkBlueGray",
+                color: "white",
+                borderRadius: "0.5rem",
+            },
+        },
     },
 });
 

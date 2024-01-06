@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css?family=Caveat");
+@import url("https://fonts.googleapis.com/css?family=Rubik");
+@import url("https://fonts.googleapis.com/css?family=Noto Sans Thai");
+
+
+*{
+    padding:0px;
+    margin:0px;
+    font-family: Rubik,Arial, Noto Sans Thai, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+
+body{
+    background-color: #1B1B1B;
+}
+
+h1{
+    color: #FFFFFF;
+    font-size: 40px;
+    letter-spacing: 2px;
+    margin: 0 0 0.5rem 0;
+}
+
+h2{
+    color:#FFFFFF;
+    letter-spacing: 2px;
+    font-size: 28px;
+}
+
+h3{
+    color:#FFFFFF;
+    letter-spacing: 1px;
+    font-size: 20px;
+}
+
+header > h1{
+    font-size: 56px;
+    color: #00B6F0;
+    text-align: center;
+    font-family: Caveat, Arial, sans-serif;
+    font-weight: 900;
+}
+
+header{
+    background-color: #1B1B1B;
+    padding: 0.5rem;
+}
+
+nav{
+    background-color: #393939;
+}
+
+a{
+    font-size: 16px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+hr{
+    border: 2px solid #00B6F0;
+}
+
+p{
+    color:#FFFFFF;
+    line-height: 1.5rem;
+}
+
+li{
+    color:#FFFFFF;
+    font-size: 16px;
+    line-height: 1.5rem;
+}
+
+button{
+    color: #FFFFFF;
+    border: 0px;
+}
+
+::-webkit-scrollbar{
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #00B6F0;
+    border-radius: 0.5rem;
+}

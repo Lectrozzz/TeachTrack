@@ -1,5 +1,5 @@
 // Import react
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { Link } from "react-router-dom";
 import { Checkbox, Button, useToast } from '@chakra-ui/react'
 import { CheckIcon } from '@chakra-ui/icons'
@@ -22,6 +22,11 @@ const StudyGroupItem = (props) =>{
     useEffect(()=>{
         props.fetchData();
     }, [activeStatus])
+
+    // useEffect(()=>{
+    //     //debug
+    //     console.log("StudyGroupItem rendered");
+    // })
 
     const submitUpdatedData = async (field, newData) =>{
         await updateGroupData(groupObj.groupId,field, newData);
@@ -83,4 +88,4 @@ const StudyGroupItem = (props) =>{
     );
 };
 
-export default StudyGroupItem;
+export default memo(StudyGroupItem);

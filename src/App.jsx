@@ -13,6 +13,8 @@ import NoPage from "./page/NoPage.jsx";
 
 //Import assets
 // import './assets/style/App.css';
+import './assets/style/global.css';
+
 
 function App() {
   return (

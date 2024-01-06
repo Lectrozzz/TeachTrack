@@ -9,7 +9,7 @@ const checkIdExist=(id, allDataArray)=>{
 
 const checkIdFormat = (id)=>{
     // [\u0E00-\u0E7F] is Thai unicode range
-    const IdRegex = /^([a-zA-Z]|[0-9]|[\u0E01-\u0E59]|[!@#$%^&*()_+{}\[\]:;<>,.?~\\\/\-|=])+$/;
+    const IdRegex = /^([a-zA-Z]|[0-9]|[\u0E01-\u0E59]|[!@#$%^&*()_+{}\[\]:;<>,.?~\-|=])+$/;
     // debug
     // for(let text of id){
     //     if(!IdRegex.test(text))console.log("Invalid characters",text);

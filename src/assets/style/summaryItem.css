@@ -34,3 +34,9 @@
     grid-column: span 1;
     text-align: end;
 }
+
+.summaryGroupIdContainer{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

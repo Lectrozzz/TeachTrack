@@ -1,8 +1,8 @@
 // Import react
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
-import { useToast } from '@chakra-ui/react'
-
+import { useToast, Tooltip } from '@chakra-ui/react'
+import { InfoOutlineIcon } from '@chakra-ui/icons'
 
 // Import context
 import {createGroup, addGroupData, getAllGroupData} from "../context/groupData.js";
@@ -15,6 +15,7 @@ import "../assets/style/button.css";
 const NewGroup = ()=>{
     const navigate=useNavigate();
     const toast = useToast();
+    const tooltipText = "The ID must be unique and can only include English letters, Thai letters, numbers, and certain special characters. No spaces are allowed."
 
     // Input data
     const [groupId, setGroupId]=useState("");
@@ -68,22 +69,26 @@ const NewGroup = ()=>{
             <form onSubmit={insertData}>
                 <div className="groupFormGrid">
                     <div className="gridFormRowItem3">
-                        <label htmlFor="groupId">ID <span className="required">*</span></label><br />
+                        <label htmlFor="groupId">ID <span className="required">*  </span></label>
+                        <Tooltip label={tooltipText} closeOnClick={false} placement="right" >
+                            <InfoOutlineIcon />
+                        </Tooltip>
+                        <br />
                         <input id="groupId" name="groupId" className="partialTextForm" type="text" value={groupId} onChange={(e)=>setGroupId(e.target.value)} required/>
                     </div>
                     <div className="gridFormRowItem1">
-                        <label htmlFor="studentCount">Student</label><br />
+                        <label htmlFor="studentCount">Student <span className="required">*</span></label><br />
                         <input id="studentCount" name="studentCount" className="normalInputForm" type="number" min="1" value={studentCount} onChange={(e)=>setStudentCount(parseInt(e.target.value))}/>
                     </div>
                     <div className="gridFormRowItem1"> 
-                        <label htmlFor="groupLanguage">Language</label><br />
+                        <label htmlFor="groupLanguage">Language <span className="required">*</span></label><br />
                         <select name="groupLanguage" id="groupLanguage" className="normalInputForm" value={groupLanguage} onChange={(e)=>setGroupLanguage(e.target.value)}>
                             <option value="Thai">Thai</option>
                             <option value="English">English</option>
                         </select>
                     </div>
                     <div className="gridFormRowItem1">
-                        <label htmlFor="groupDuration">Duration (hours)</label><br />
+                        <label htmlFor="groupDuration">Duration (hours) <span className="required">*</span></label><br />
                         <select name="groupDuration" id="groupDuration" className="normalInputForm" value={groupDuration} onChange={(e)=>setGroupDuration(e.target.value)}>
                             <option value="60">1 hour</option>
                             <option value="90">1.30 hours</option>

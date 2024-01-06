@@ -8,7 +8,7 @@ const SummaryItem = (props)=>{
 
     return(
         <div className={`summaryItemContainer ${(tag === "header") ? "summaryHeaderContainer": (tag=== "footer") ? "summaryFooterContainer" : (count%2===0) ? "evenContainerItem" : "oddContainerItem" }`} >
-            <div className="summaryLongItem" >{data.groupId}</div>
+            <div className="summaryLongItem summaryGroupIdContainer" >{data.groupId}</div>
             <div className="summaryShortItem" >{data.roundCount}</div>
             <div className="summaryShortItem" >{data.teachingFee}</div>
         </div>

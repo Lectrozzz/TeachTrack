@@ -17,16 +17,16 @@ const Tutorial = () =>{
                     </div>
                     <hr />
                     <div className="tutorialContentContainer" >
-                        <p>Click the "New" button on the top right corner of the home page. It will navigate to the "New Group" page.</p>
+                        <p>Click the "New" button on the top right corner to access the "New Group" page.</p>
                         <div className="tutorialMediaContainer" >
                             <button className="btn blueButton">New</button>
                         </div>
-                        <p>Enter your study group information on the "New Group" form. ( only Group ID is required, the rest are optional )</p>
+                        <p>On the "New Group" form, enter your study group information. Only the Group ID, student count, language and duration are required; the rest of the fields are optional.</p>
                         <div className="tutorialMediaContainer">
                             <img src={newGroupFormImage} alt="New Group Form" className="fitImage" />
                             <p className="imageDescription" >New Group Form</p>
                         </div>
-                        <p>Click "Create" button if you want to save the group information or click "Cancel" button if you don't want to save.</p>
+                        <p>Click the "Create" button to save the group information. If you decide not to proceed, click the "Cancel" button.</p>
                     </div>
                 </div>
                 <div className="tutorialSection">
@@ -35,8 +35,7 @@ const Tutorial = () =>{
                     </div>
                     <hr />
                     <div className="tutorialContentContainer" >
-                        <p>You can check your group list on the home page. Each item contains round count, previous class content,
-                        next class date and current status ( active / inactive ) which you can easily edit by yourself after you finish your class.</p>
+                        <p>Check your group list on the home page. Each item in the list includes the round count, previous class content, next class date, and current status (active/inactive).</p>
                         <div className="tutorialMediaContainer">
                             <img src={activeGroupItemImage} alt="Active Group Item" className="fitImage" />
                             <p className="imageDescription" >Active Group Item</p>
@@ -45,7 +44,7 @@ const Tutorial = () =>{
                             <img src={inactiveGroupItemImage} alt="Inactive Group Item" className="fitImage" />
                             <p className="imageDescription" >Inactive Group Item</p>
                         </div>
-                        <p>When you change the group status the order of the item will be reordered automatically.</p>
+                        <p>You can asily edit these details (round count, currrent lesson and next class date) after completing your class then click save to update the progress. Changing the group status will automatically reorder the items.</p>
                     </div>
                 </div>
                 <div className="tutorialSection">
@@ -54,21 +53,21 @@ const Tutorial = () =>{
                     </div>
                     <hr />
                     <div className="tutorialContentContainer" >
-                        <p>Click on the group ID inside group item to enter "Edit Group" page which you can edit and delete your group details.</p>
+                        <p>Click on the group ID inside the group item to access the "Edit Group" page. On the "Edit Group" page, you can make changes to your group details.</p>
                         <div className="tutorialMediaContainer">
                             <img src={editGroupFormImage} alt="Edit Group Page" className="fitImage" />
                             <p className="imageDescription" >Edit Group Form</p>
                         </div>
-                        <p>Click "Save" button if you want to save the group detail or click "Delete" button if you want to delete this study group.</p>
+                        <p>Click the "Save" button to update the group details or click the "Delete" button to remove the study group.</p>
                     </div>
                 </div>
                 <div className="tutorialSection">
                     <div className="tutorialHeaderContainer" >
-                        <h2>4.Check your teaching fee summary</h2>
+                        <h2>4.Check your summary</h2>
                     </div>
                     <hr />
                     <div className="tutorialContentContainer" >
-                        <p>You can check your teaching fee and round count of each group along with total amount of them combined from "Summary page".</p>
+                        <p>View your teaching fee and round count for each group, along with the total amount, on the "Summary" page.</p>
                         <div className="tutorialMediaContainer">
                             <img src={summaryPageImage} alt="Summary Page" className="fitImage" />
                             <p className="imageDescription" >Summary Page</p>
