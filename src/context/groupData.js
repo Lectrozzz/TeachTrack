@@ -38,12 +38,7 @@ const getAllGroupData = async () =>{
 
 const getGroupDataById = async (id)=>{
     const allDataArray = await getAllGroupData();
-    for(let item of allDataArray){
-        if(item.groupId===id){
-            return item;
-        }
-    }
-    return null;
+    return allDataArray.find((item)=>item.groupId===id);
 }
 
 const addGroupData = async (id, newGroupItem) =>{

@@ -10,6 +10,7 @@ const customTheme = extendTheme({
             inactiveGray: "#8D8D8D",
 
             blue: "#00B6F0",
+            onclickBlue: "#0096C6",
             lightGreen: "#49FF45",
             lightRed: "#FF3D3D",
             white: "#FFFFFF",
@@ -38,11 +39,35 @@ const customTheme = extendTheme({
                     _hover: {
                         bg: "secondary.blue",
                     },
+                    _active: {
+                        bg: "primary.onclickBlue",
+                    },
                 },
                 "inactiveFormButton":{
                     bg: "primary.inactiveBlueGray",
                     _hover: {
                         bg: "primary.inactiveBlueGray",
+                    },
+                },
+            },
+        },
+        Checkbox:{
+            variants:{
+                "statusCheckbox":{
+                    control:{
+                        color: "primary.white",
+                        borderColor: "primary.lightRed",
+                        _hover:{
+                            borderColor: "secondary.lightRed",
+                        },
+                        _checked:{
+                            bg: "green.500",
+                            borderColor: "green.500",
+                            _hover:{
+                                bg: "green.700",
+                                borderColor: "green.500",
+                            },
+                        },
                     },
                 },
             },

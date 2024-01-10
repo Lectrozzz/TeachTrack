@@ -39,6 +39,17 @@ const StudyGroupItem = (props) =>{
     }
 
     const saveDataHandler = () =>{
+        if(roundCount > 5000){
+            toast({
+                position: "top",
+                title: "Save failed",
+                description: "Round count cannot be greater than 5000.",
+                status: "error",
+                duration: 5000,
+                isClosable: true,
+            })
+            return;
+        }
         submitUpdatedData("roundCount", roundCount);
         submitUpdatedData("currentLesson", currentLesson);
         submitUpdatedData("nextClass", nextClass);
@@ -61,7 +72,7 @@ const StudyGroupItem = (props) =>{
             </div>
             <div className="gridItem1 gridItemEnd">
                 <label htmlFor="activeStatus" className={(activeStatus) ? "activeText":"inactiveText"} >{(activeStatus) ? "ACTIVE":"INACTIVE"}</label>
-                <Checkbox isChecked={activeStatus} onChange={activeStatusHandler} colorScheme='green' size='lg'></Checkbox>
+                <Checkbox isChecked={activeStatus} onChange={activeStatusHandler} variant="statusCheckbox" size='lg'></Checkbox>
             </div>
             <div className="gridItem1">
                 <div>

@@ -18,6 +18,9 @@ import {
 // Import context
 import {getGroupDataById, updateGroupData, deleteGroupData } from "../context/groupData.js";
 
+// Import assets
+import "../assets/style/editGroup.css";
+
 const EditGroup = () =>{
     const param=useParams();
     const navigate=useNavigate();
@@ -72,24 +75,26 @@ const EditGroup = () =>{
         navigate("/");
     }
 
-    const deleteGroupHandler=()=>{
-        deleteGroupData(groupId);
-        
-        toast({
-            title: "Complete",
-            description: "Study group has been deleted.",
-            status: "success",
-            position: "top",
-            duration: 5000,
-            isClosable: true,
-        });
+    const deleteGroupHandler = ()=>{
+        const deleteGroupPromise = deleteGroupData(groupId)
+        toast.promise(deleteGroupPromise, {
+            loading: {title: "Deleting...", description: "This might take a while", position: "top", duration: 5000, isClosable: true,},
+            success: {title: "Complete", description: "Study group has been deleted.", position: "top", duration: 5000, isClosable: true,},
+            error: (err) => {
+                return "Something went wrong";
+            }
+        })
 
-        navigate("/");
+        deleteGroupPromise.then(()=>{
+            navigate("/");
+        })
     }
 
     return(
         <>
-            <h1>{groupId}</h1>
+            <div className="editGroupIdContainer">
+                <h2>{groupId}</h2>
+            </div>
             <form onSubmit={(e)=>e.preventDefault()} >
                 <div className="groupFormGrid">
                     <div className="gridFormRowItem3">

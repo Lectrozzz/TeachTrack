@@ -15,7 +15,8 @@ import "../assets/style/button.css";
 const NewGroup = ()=>{
     const navigate=useNavigate();
     const toast = useToast();
-    const tooltipText = "The ID must be unique and can only include English letters, Thai letters, numbers, and certain special characters. No spaces are allowed."
+    const tooltipText = "The ID must be unique including English letters, Thai letters, numbers, or certain special characters and cannot be longer than 65 characters. No spaces are allowed."
+    const inputIdPlaceholder = "Hover over the info icon for additional details on the ID format."
 
     // Input data
     const [groupId, setGroupId]=useState("");
@@ -74,7 +75,7 @@ const NewGroup = ()=>{
                             <InfoOutlineIcon />
                         </Tooltip>
                         <br />
-                        <input id="groupId" name="groupId" className="partialTextForm" type="text" value={groupId} onChange={(e)=>setGroupId(e.target.value)} required/>
+                        <input id="groupId" name="groupId" className="partialTextForm" type="text" value={groupId} placeholder={inputIdPlaceholder} onChange={(e)=>setGroupId(e.target.value)} required/>
                     </div>
                     <div className="gridFormRowItem1">
                         <label htmlFor="studentCount">Student <span className="required">*</span></label><br />

@@ -145,7 +145,6 @@ const updateData = async(id, field, updatedData)=>{
 
 const deleteData= async (id) =>{
     try{
-        console.log(id);
         await deleteDoc(doc(db, "studyGroup", id));
     }
     catch(e){

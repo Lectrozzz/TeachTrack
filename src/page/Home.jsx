@@ -38,8 +38,8 @@ const Home=()=>{
                 </div>
             </div>
             <div>
-                {activeArray.map((item)=> <StudyGroupItem id={item.groupId} key={item.groupId} obj={item} fetchData={fetchData} />)}
-                {inactiveArray.map((item)=> <StudyGroupItem id={item.groupId} key={item.groupId} obj={item} fetchData={fetchData} />)}
+                {activeArray.map((item)=> <li key={item.groupId} className="listedItem" ><StudyGroupItem id={item.groupId} obj={item} fetchData={fetchData} /></li>)}
+                {inactiveArray.map((item)=> <li key={item.groupId} className="listedItem"><StudyGroupItem id={item.groupId} obj={item} fetchData={fetchData} /></li>)}
             </div>
         </>
     );

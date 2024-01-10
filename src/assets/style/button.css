@@ -20,7 +20,11 @@
 }
 
 .blueButton:hover{
-    background-color: #49D3FF;
+    background-color: #2ACBFF;
+}
+
+.blueButton:active{
+    background-color: #0096C6;
 }
 
 .redButton{
@@ -30,4 +34,8 @@
 
 .redButton:hover{
     background-color: #FF6464;
+}
+
+.redButton:active{
+    background-color: #FF0000;
 }

@@ -15,7 +15,14 @@ const checkIdFormat = (id)=>{
     //     if(!IdRegex.test(text))console.log("Invalid characters",text);
     // }
     return IdRegex.test(id);
-}   
+}
+
+const checkIdLength = (id)=>{
+    if(id.length>65 || id.length<1){
+        return false;
+    }
+    return true;
+}
 
 const checkStudentCount = (studentCount)=>{
     if(studentCount>0 && studentCount<30){
@@ -42,6 +49,7 @@ const validateAllData=(id, newGroupItem, allDataArray)=>{
     const errorMessage=[];
     if(!checkIdExist(id, allDataArray)) errorMessage.push("This ID is already exist");
     if(!checkIdFormat(id)) errorMessage.push("Invalid ID format");
+    if(!checkIdLength(id)) errorMessage.push("ID length cannot be longer than 65 characters");
     if(!checkStudentCount(newGroupItem.studentCount)) errorMessage.push("Student count should be between 1-30");
     if(!checkLanguage(newGroupItem.groupLanguage)) errorMessage.push("Invalid language");
     if(!checkDuration(newGroupItem.groupDuration)) errorMessage.push("Invalid duration");

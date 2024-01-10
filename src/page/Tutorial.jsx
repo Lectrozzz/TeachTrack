@@ -31,7 +31,7 @@ const Tutorial = () =>{
                 </div>
                 <div className="tutorialSection">
                     <div className="tutorialHeaderContainer" >
-                        <h2>2.Track your group progress</h2>
+                        <h2>2.Update your group progress</h2>
                     </div>
                     <hr />
                     <div className="tutorialContentContainer" >
@@ -44,7 +44,7 @@ const Tutorial = () =>{
                             <img src={inactiveGroupItemImage} alt="Inactive Group Item" className="fitImage" />
                             <p className="imageDescription" >Inactive Group Item</p>
                         </div>
-                        <p>You can asily edit these details (round count, currrent lesson and next class date) after completing your class then click save to update the progress. Changing the group status will automatically reorder the items.</p>
+                        <p>You can asily update these details (round count, currrent lesson and next class date) after completing your class, click save to update the progress. Changing the group status will also automatically reorder the items.</p>
                     </div>
                 </div>
                 <div className="tutorialSection">
