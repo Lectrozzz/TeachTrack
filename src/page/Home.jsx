@@ -1,6 +1,6 @@
 // Import react
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 // Import context
 import { getGroupData } from "../context/groupData.js";
@@ -17,11 +17,11 @@ const Home=()=>{
     const [activeArray, setActiveArray] = useState([]);
     const [inactiveArray, setInactiveArray] = useState([]);
 
-    const fetchData = async ()=>{
+    const fetchData = useCallback(async ()=>{
         const [newActiveArray, newInactiveArray]= await getGroupData();
         setActiveArray(newActiveArray);
         setInactiveArray(newInactiveArray);
-    }
+    },[activeArray, inactiveArray]);
 
     useEffect(() => {
         fetchData();

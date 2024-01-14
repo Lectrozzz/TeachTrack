@@ -24,13 +24,14 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const fetchData = async() => {
-    const testArray=[];
+    const dataArray=[];
     try{
         const querySnapshot = await getDocs(collection(db, "studyGroup"));
         querySnapshot.docs.forEach((doc) => (
-                testArray.push({...doc.data(), id:doc.id})
+                dataArray.push({...doc.data(), id:doc.id})
         ));
-        return testArray;
+        // console.log(dataArray);
+        return dataArray;
     }
     catch(e){
         console.log(e.message);

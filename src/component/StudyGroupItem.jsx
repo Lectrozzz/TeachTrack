@@ -1,7 +1,7 @@
 // Import react
 import { useState, useEffect, memo } from 'react';
 import { Link } from "react-router-dom";
-import { Checkbox, Button, useToast } from '@chakra-ui/react'
+import { Checkbox, Button, Spinner, useToast } from '@chakra-ui/react'
 import { CheckIcon } from '@chakra-ui/icons'
 
 // Import context
@@ -34,8 +34,15 @@ const StudyGroupItem = (props) =>{
 
     const activeStatusHandler = async () =>{
         const newActiveStatus = !activeStatus;
-        await submitUpdatedData("activeStatus", newActiveStatus);
-        setActiveStatus(newActiveStatus);
+        const dataSubmission = submitUpdatedData("activeStatus", newActiveStatus);
+        toast.promise(dataSubmission, {
+            loading: {title: "Updating...", description: "This might take a while", position: "top", duration: 5000, isClosable: true,},
+            success: {title: "Complete", description: "Status Updated", position: "top", duration: 5000, isClosable: true,},
+        });
+        dataSubmission.then(()=>{
+            setActiveStatus(newActiveStatus)
+            // props.fetchData();
+        });
     }
 
     const saveDataHandler = () =>{

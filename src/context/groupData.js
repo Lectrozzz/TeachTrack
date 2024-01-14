@@ -56,4 +56,18 @@ const deleteGroupData = async (id)=>{
     await fetchStorage();
 }
 
-export {createGroup, getGroupData, getAllGroupData, getGroupDataById, addGroupData, updateGroupData, deleteGroupData};
+const verifyItemId = async (fetchedArray) =>{
+    console.log(fetchedArray);
+    const invalidIdArray = fetchedArray.filter((item)=>item.groupId!==item.id);
+    if(invalidIdArray.length===0) return true;
+    
+    // console.log("Invalid Id Array: ", invalidIdArray);
+    invalidIdArray.forEach(async (item)=>{
+        await deleteData(item.id);
+        await addGroupData(item.groupId, item);
+    });
+
+    return false;
+}
+
+export {createGroup, getGroupData, getAllGroupData, getGroupDataById, addGroupData, updateGroupData, deleteGroupData, verifyItemId};

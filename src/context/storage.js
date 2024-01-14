@@ -1,7 +1,10 @@
 import { fetchData } from '../backend/firebase.js';
+import { verifyItemId } from './groupData.js';
 
 const fetchStorage = async () => {
     const fetchedArray = await fetchData();
+    const isValid = await verifyItemId(fetchedArray)
+    if(!isValid) return;
     const activeArray = [...fetchedArray.filter((item) => item.activeStatus)];
     const inactiveArray = [...fetchedArray.filter((item) => !item.activeStatus)];
     sessionStorage.setItem('allDataArray', JSON.stringify(fetchedArray));
