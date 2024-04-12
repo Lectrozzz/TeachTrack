@@ -22,8 +22,5 @@ Currently, two official plugins are available:
 # Required Modules
 
 ```bash
-npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
-npm i @chakra-ui/icons
-npm i firebase@10.7.1 --save
-npm i -g firebase-tools
+npm i
 ```
